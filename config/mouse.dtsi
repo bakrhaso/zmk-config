@@ -19,17 +19,6 @@
   delay-ms = <0>;                       // 0
 };
 
-&mmv_input_listener {
-  warp {
-    layers = <NAV>;
-    input-processors = <&zip_xy_scaler 3 1>;
-  };
-  precision {
-    layers = <FN>;
-    input-processors = <&zip_xy_scaler 1 2>;
-  };
-};
-
 / {
   zip_scroll_scaler: zip_scroll_scaler {
     compatible = "zmk,input-processor-scaler";
@@ -40,14 +29,34 @@
   };
 };
 
-&msc_input_listener {
-  warp {
-    layers = <NAV>;
-    input-processors = <&zip_scroll_scaler 2 1>;
+/* TailorKey mouse speed layers — activated by &mo on the Mouse layer */
+&mmv_input_listener {
+  slow {
+    layers = <MOUSE_SLOW>;
+    input-processors = <&zip_xy_scaler 1 9>;
   };
-  precision {
-    layers = <FN>;
-    input-processors = <&zip_scroll_scaler 1 2>;
+  fast {
+    layers = <MOUSE_FAST>;
+    input-processors = <&zip_xy_scaler 3 1>;
+  };
+  warp {
+    layers = <MOUSE_WARP>;
+    input-processors = <&zip_xy_scaler 12 1>;
+  };
+};
+
+&msc_input_listener {
+  slow {
+    layers = <MOUSE_SLOW>;
+    input-processors = <&zip_scroll_scaler 1 9>;
+  };
+  fast {
+    layers = <MOUSE_FAST>;
+    input-processors = <&zip_scroll_scaler 3 1>;
+  };
+  warp {
+    layers = <MOUSE_WARP>;
+    input-processors = <&zip_scroll_scaler 12 1>;
   };
 };
 
