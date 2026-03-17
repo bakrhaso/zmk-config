@@ -92,25 +92,8 @@ ZMK_MACRO(cur_select_line, bindings = <&kp HOME &kp LS(END)>; wait-ms = <1>; tap
 ZMK_MACRO(cur_select_none, bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>; wait-ms = <1>; tap-ms = <1>;)
 ZMK_MACRO(cur_select_word, bindings = <&kp LC(LEFT) &kp LC(LS(RIGHT))>; wait-ms = <1>; tap-ms = <1>;)
 
-// Magic key: hold for Magic layer, tap for RGB status.
-/ {
-    macros {
-        rgb_ug_status_macro: rgb_ug_status_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_STATUS>;
-        };
-    };
-    behaviors {
-        magic: magic {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&rgb_ug_status_macro>;
-        };
-    };
-};
+// Magic key: just a layer momentary.
+// (RGB_STATUS is Glove80/MoErgo-specific, not available in upstream ZMK.)
 
 /* 80 transparent keys for mouse speed sub-layers */
 #define LAYER_TRANSPARENT80                                                     \
@@ -182,7 +165,7 @@ ZMK_LAYER(Lower,
 //  ╭── Row 4 ──╮
     ___       &kp K_APP XXX       &kp F11   &kp F12   &kp PG_DN  ___ ___ &to DEF ___ ___ ___  &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER ___
 //  ╭── Row 5 ──╮
-    &magic MAGIC 0 &kp CAPS &kp INS &kp F11 &kp F12  ___ ___ ___  ___ ___ ___  &kp KP_N0 &kp KP_N0 &kp KP_DOT &kp KP_ENTER ___
+    &mo MAGIC &kp CAPS &kp INS &kp F11 &kp F12  ___ ___ ___  ___ ___ ___  &kp KP_N0 &kp KP_N0 &kp KP_DOT &kp KP_ENTER ___
 )
 
 ZMK_LAYER(Mouse,

@@ -9,7 +9,7 @@
         &kp GRAVE            LB                                                                   \
             &caps_word_ht LSHFT 0 &kp LCTRL &mo LOWER &kp LGUI &kp RCTRL &caps_word_ht RSHFT 0   \
                                                RB                                    &kp PG_UP    \
-                   &magic MAGIC 0 &kp HOME &kp END                                               \
+                   &mo MAGIC &kp HOME &kp END                                               \
         &kp LEFT  &kp RIGHT  LH &kp LALT                    &kp RALT     RH    &kp UP &kp DOWN   \
                                                    &kp LBKT &kp RBKT &kp PG_DN)
 
